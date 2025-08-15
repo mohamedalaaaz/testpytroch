@@ -1,0 +1,29 @@
+import torch
+
+# Create a tensor from a Python list
+x = torch.tensor([[1, 2], [3, 4]])
+print("Tensor x:")
+print(x)
+
+# Create a tensor with random values
+y = torch.rand(2, 2)
+print("\nTensor y (random):")
+print(y)
+
+# Perform element-wise addition
+z = x + y
+print("\nTensor z (x + y):")
+print(z)
+
+# Perform matrix multiplication
+matrix_mul = torch.matmul(x, y)
+print("\nMatrix multiplication (x @ y):")
+print(matrix_mul)
+
+# Check if CUDA (GPU) is available and move a tensor to GPU
+if torch.cuda.is_available():
+    device = torch.device("cuda")
+    x_cuda = x.to(device)
+    print(f"\nTensor x on GPU: {x_cuda}")
+else:
+    print("\nCUDA (GPU) not available. Tensors remain on CPU.")
